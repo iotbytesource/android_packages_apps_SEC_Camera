@@ -1,0 +1,19 @@
+# ctors of subclasses of CameraPreference are called with Java reflection.
+-keep class * extends com.android.SECcamera.CameraPreference {
+  <init>(...);
+}
+
+-keep class com.android.SECcamera.ActivityBase {
+  public int getResultCode();
+  public android.content.Intent getResultData();
+}
+
+-keep class com.android.SECcamera.VideoCamera {
+  public boolean isRecording();
+  public void onCancelBgTraining(...);
+  public void onProtectiveCurtainClick(...);
+}
+
+-keep class * extends android.app.Activity {
+  @com.android.SECcamera.OnClickAttr <methods>;
+}
